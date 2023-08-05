@@ -1,5 +1,4 @@
-﻿
-namespace ParcelLib.Models
+﻿namespace ParcelLib.Models
 {
     public class Department
     {
