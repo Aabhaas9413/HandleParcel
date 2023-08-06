@@ -6,27 +6,27 @@ namespace ParcelLib.Services
 {
     public class DepartmentService : IDepartmentService
     {
-        private List<Department> departments = new List<Department>();
+        private List<Department> _departments = new List<Department>();
         public DepartmentService(List<Department> departments)
         {
-            departments = departments.OrderBy(department => department.WeightThreshold).ToList();
-            this.departments = departments;
+            _departments = departments.OrderBy(department => department.WeightThreshold).ToList();           
         }
 
         public List<Department> GetDepartments()
         {
-            return departments;
+            return _departments;
         }
         public List<Department> AddDepartment(string name, double weightThreshold)
         {
-            departments.Add(new Department(name, weightThreshold));
-            return departments.OrderBy(department => department.WeightThreshold).ToList();
+            _departments.Add(new Department(name, weightThreshold));
+            _departments = _departments.OrderBy(department => department.WeightThreshold).ToList();
+            return _departments;
         }
 
         public List<Department> RemoveDepartment(string name)
         {
-            departments.RemoveAll(d => d.Name.Equals(name));
-            return departments;
+            _departments.RemoveAll(d => d.Name.Equals(name));
+            return _departments;
         }
     }
 }

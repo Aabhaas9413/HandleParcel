@@ -5,6 +5,7 @@ using ParcelLib.Services.IServices;
 
 class Program
 {
+    private static readonly string shipmentXmlPath = "C:\\Users\\aabha\\Desktop\\Assignment\\Assignment\\Container_68465468.xml";
     public static void Main()
     {
         Shipment shipment = GetShipmentInfoFromXML();
@@ -21,9 +22,8 @@ class Program
 
     private static Shipment GetShipmentInfoFromXML()
     {
-        var shipmentXmlPath = "C:\\Users\\aabha\\Desktop\\Assignment\\Assignment\\Container_68465468.xml";
-        IRetriveShipmentInfoFromXML info = new RetriveShipmentInfoFromXML();
-        Shipment shipment = info.RetriveShipmentIinfo(shipmentXmlPath);
+        IRetriveShipmentInfoFromXML shipmentInfo = new RetriveShipmentInfoFromXML();
+        Shipment shipment = shipmentInfo.RetriveShipmentIinfo(shipmentXmlPath);
         return shipment;
     }
 
@@ -44,8 +44,7 @@ class Program
        Console.WriteLine("This parcel is from: " + parcel.Sender.Name);
        Console.WriteLine("This parcel is to: " + parcel.Receipient.Name);
        Console.WriteLine("Parcel with weight " + parcel.Weight + " kg and value " + parcel.Value + " euros");
-       if (IsInsured) Console.WriteLine("This item has been signed off from Insurance department.");
-       
+       if (IsInsured) Console.WriteLine("This item has been signed off from Insurance department.");       
        Console.WriteLine(string.IsNullOrEmpty(departmentName) ?
            "Please check the range of the departments.":
            "This parcel is handled by the " + departmentName + " department.");

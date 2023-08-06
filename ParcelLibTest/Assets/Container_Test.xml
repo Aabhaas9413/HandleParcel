@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>1111</Id>
+  <ShippingDate>2016-07-22T00:00:00+02:00</ShippingDate>
+  <parcels>
+    <Parcel>
+      <Sender>
+        <Name>Klaas</Name>
+        <Address>
+          <Street>Uranusstraat</Street>
+          <HouseNumber>22</HouseNumber>
+          <PostalCode>2402AE</PostalCode>
+          <City>Alphen a/d Rijn</City>
+        </Address>
+      </Sender>
+      <Receipient>
+        <Name>Piet</Name>
+        <Address>
+          <Street>Schenklaan</Street>
+          <HouseNumber>22</HouseNumber>
+          <PostalCode>2497AV</PostalCode>
+          <City>Den Haag</City>
+        </Address>
+      </Receipient>
+      <Weight>0.02</Weight>
+      <Value>0.0</Value>
+    </Parcel>
+  </parcels>
+</Container>

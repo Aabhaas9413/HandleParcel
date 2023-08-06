@@ -18,13 +18,13 @@ namespace ParcelLibTest
             IHandleParcelService parcelService = new HandleParcelService(department);
             Parcel parcel = new Parcel() { Receipient = It.IsAny<Receipient>(), Sender = It.IsAny<Sender>(), Value = parcelValue, Weight = parcelWeight };
             string expectedDepartmentName = expectedDepartment;
-            bool hasBeenThroughInsuranceDepartment = isInsuranceReq;
 
             //Act
             var actualDepartmentInfo = parcelService.ParcelHandler(parcel);
 
             //Arrange
             Assert.Equal(expectedDepartmentName, actualDepartmentInfo.Item1);
+            Assert.Equal(isInsuranceReq, actualDepartmentInfo.Item2);
         }
         private static IDepartmentService instantiateDepartmentService()
         {

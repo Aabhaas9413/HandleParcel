@@ -5,15 +5,14 @@ namespace ParcelLib.Services
 {
     public class HandleParcelService : IHandleParcelService
     {
-        private List<Department> departments;
+        private readonly List<Department> _departments;
         private readonly IDepartmentService _departmentService;
 
         public HandleParcelService(IDepartmentService departmentService)
         {
             _departmentService = departmentService;
-            departments = _departmentService.GetDepartments();
+            _departments = _departmentService.GetDepartments();
         }
-
 
         public Tuple<string, bool> ParcelHandler(Parcel parcel)
         {
@@ -24,7 +23,7 @@ namespace ParcelLib.Services
                 isInsured = true;
             }
 
-            foreach (var department in departments)
+            foreach (var department in _departments)
             {
                 if (parcel.Weight <= department.WeightThreshold)
                 {
