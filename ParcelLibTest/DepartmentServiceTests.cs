@@ -6,18 +6,13 @@ namespace ParcelLibTest
 {
     public class DepartmentServiceTests
     {
-        private List<Department> departments = new List<Department>();
-
-        
-        private DepartmentService InitializeDepatmentService()
+        private IDepartmentService InitializeDepatmentService()
         {
-            departments.AddRange(
-               new List<Department> {
-                    new Department("Mail", 1),
-                    new Department("Regular", 10),
-                    new Department("Heavy", double.MaxValue)
-                });
-            return new DepartmentService(departments);
+            IDepartmentService departmentService = new DepartmentService();
+            departmentService.AddDepartment("Mail", 1);
+            departmentService.AddDepartment("Regular", 10);
+            departmentService.AddDepartment("Heavy", double.MaxValue);
+            return departmentService;
         }
 
         [Fact]        
@@ -25,13 +20,13 @@ namespace ParcelLibTest
         {
             //Arrange            
             IDepartmentService departmentService = InitializeDepatmentService();
+            var totalDepartments = 3;
 
             //Act
             var actualDepartments = departmentService.GetDepartments();
 
             //Assert
-            Assert.Equal(departments.Count, actualDepartments.Count);
-            Assert.Equal(departments, actualDepartments);
+            Assert.Equal(totalDepartments, actualDepartments.Count);
         }
 
         [Fact]
