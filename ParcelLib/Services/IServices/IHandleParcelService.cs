@@ -4,6 +4,6 @@ namespace ParcelLib.Services.IServices
 {
     public interface IHandleParcelService
     {
-        Tuple<string, bool> ParcelHandler(Parcel parcel);
+        Tuple<string, bool> ParcelHandler(double weight, double value);
     }
 }

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParcelLib", "ParcelLib\Parc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParcelLibTest", "ParcelLibTest\ParcelLibTest.csproj", "{93F098D8-CE13-41F8-B2DA-8643DFF61680}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentInfoAPI", "ShipmentInfoAPI\ShipmentInfoAPI.csproj", "{847674E2-0A7A-408A-82C5-1D11B00B527F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93F098D8-CE13-41F8-B2DA-8643DFF61680}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93F098D8-CE13-41F8-B2DA-8643DFF61680}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93F098D8-CE13-41F8-B2DA-8643DFF61680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{847674E2-0A7A-408A-82C5-1D11B00B527F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{847674E2-0A7A-408A-82C5-1D11B00B527F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{847674E2-0A7A-408A-82C5-1D11B00B527F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{847674E2-0A7A-408A-82C5-1D11B00B527F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,7 +24,7 @@ namespace ParcelLibTest
             string expectedDepartmentName = expectedDepartment;
 
             //Act
-            var actualDepartmentInfo = parcelService.ParcelHandler(parcel);
+            var actualDepartmentInfo = parcelService.ParcelHandler(parcel.Weight, parcel.Value);
 
             //Arrange
             Assert.Equal(expectedDepartmentName, actualDepartmentInfo.Item1);
@@ -32,14 +32,11 @@ namespace ParcelLibTest
         }
         private static IDepartmentService instantiateDepartmentService()
         {
-            List<Department> departments = new List<Department>
-                {
-                    new Department("Mail", 1),
-                    new Department("Regular", 10),
-                    new Department("Heavy", double.MaxValue)
-                };
-            IDepartmentService department = new DepartmentService(departments);
-            return department;
+            IDepartmentService departmentService = new DepartmentService();
+            departmentService.AddDepartment("Mail", 1);
+            departmentService.AddDepartment("Regular", 10);
+            departmentService.AddDepartment("Heavy", double.MaxValue);
+            return departmentService;
         }
     }
 }

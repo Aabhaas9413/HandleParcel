@@ -14,18 +14,18 @@ namespace ParcelLib.Services
             _departments = _departmentService.GetDepartments();
         }
 
-        public Tuple<string, bool> ParcelHandler(Parcel parcel)
+        public Tuple<string, bool> ParcelHandler(double weight, double value)
         {
             string departmentName = string.Empty;
             bool isInsured = false;
-            if (parcel.Value > 1000)
+            if (value > 1000)
             {
                 isInsured = true;
             }
 
             foreach (var department in _departments)
             {
-                if (parcel.Weight <= department.WeightThreshold)
+                if (weight <= department.WeightThreshold)
                 {
                     departmentName = department.Name;
                     break;

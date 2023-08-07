@@ -6,10 +6,6 @@ namespace ParcelLib.Services
     public class DepartmentService : IDepartmentService
     {        
         private List<Department> _departments = new List<Department>();
-        public DepartmentService(List<Department> departments)
-        {
-            _departments = departments.OrderBy(department => department.WeightThreshold).ToList();           
-        }
 
         public List<Department> GetDepartments()
         {
