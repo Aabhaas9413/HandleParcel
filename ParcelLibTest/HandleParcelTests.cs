@@ -1,6 +1,7 @@
 using ParcelLib.Models;
 using ParcelLib.Services;
 using ParcelLib.Services.IServices;
+using ParcelLibTest.Builder;
 
 namespace ParcelLibTest
 {
@@ -16,7 +17,10 @@ namespace ParcelLibTest
             //Arrange
             IDepartmentService department = instantiateDepartmentService();
             IHandleParcelService parcelService = new HandleParcelService(department);
-            Parcel parcel = new Parcel() { Receipient = It.IsAny<Receipient>(), Sender = It.IsAny<Sender>(), Value = parcelValue, Weight = parcelWeight };
+            Parcel parcel = new ParcelBuilder(It.IsAny<Sender>(), It.IsAny<Receipient>())
+                                              .SetValue(parcelValue)
+                                              .SetWeight(parcelWeight)
+                                              .Build();
             string expectedDepartmentName = expectedDepartment;
 
             //Act

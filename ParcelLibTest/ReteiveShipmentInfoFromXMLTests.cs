@@ -23,5 +23,15 @@ namespace ParcelLibTest
             Assert.Equal(shipment.Id, expectedShipmentId);
         }
 
+        [Fact]
+        public void Get_ShipmentInfo_from_XML_throws_exception()
+        {
+            //Arrange
+            IRetriveShipmentInfoFromXML info = new RetriveShipmentInfoFromXML();
+
+            //Assert
+            Assert.Throws<ArgumentException>(()=> info.RetriveShipmentIinfo(""));
+        }
+
     }
 }

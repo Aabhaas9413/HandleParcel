@@ -7,16 +7,23 @@ namespace ParcelLib.ParcelDataAccess
     {
         public Shipment RetriveShipmentIinfo(string path)
         {
-            Shipment shipment = new();
-            string xmlContent = File.ReadAllText(path);
-
-            XmlSerializer serializer = new XmlSerializer(typeof(Shipment));
-
-            using (TextReader reader = new StringReader(xmlContent))
+            try
             {
-                shipment = (Shipment)serializer.Deserialize(reader);
+                Shipment shipment = new();
+                string xmlContent = File.ReadAllText(path);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(Shipment));
+
+                using (TextReader reader = new StringReader(xmlContent))
+                {
+                    shipment = (Shipment)serializer.Deserialize(reader);
+                }
+                return shipment;
             }
-            return shipment;
+            catch {
+                throw;
+            }
+           
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ParcelLib.Models;
+﻿using Microsoft.Extensions.Configuration;
+using ParcelLib.Models;
 using ParcelLib.ParcelDataAccess;
 using ParcelLib.Services;
 using ParcelLib.Services.IServices;
@@ -7,7 +8,7 @@ class Program
 {
     private static readonly string shipmentXmlPath = "C:\\Users\\aabha\\Desktop\\Assignment\\Assignment\\Container_68465468.xml";
     public static void Main()
-    {
+    {        
         Shipment shipment = GetShipmentInfoFromXML();
         IDepartmentService departmentService = InstantiateDepartmentService();
         IHandleParcelService handleParcleService = new HandleParcelService(departmentService);
@@ -22,9 +23,19 @@ class Program
 
     private static Shipment GetShipmentInfoFromXML()
     {
+        IConfiguration config = GetConfiguration();
         IRetriveShipmentInfoFromXML shipmentInfo = new RetriveShipmentInfoFromXML();
-        Shipment shipment = shipmentInfo.RetriveShipmentIinfo(shipmentXmlPath);
+        Shipment shipment = shipmentInfo.RetriveShipmentIinfo(config["XMLFilePath"]);
         return shipment;
+    }
+
+    private static IConfiguration GetConfiguration()
+    {
+        var builder = new ConfigurationBuilder();
+        builder.SetBasePath(Directory.GetCurrentDirectory())
+       .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+        IConfiguration config = builder.Build();
+        return config;
     }
 
     private static IDepartmentService InstantiateDepartmentService()

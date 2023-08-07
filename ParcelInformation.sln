@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParcelInformation", "ParcelInformation\ParcelInformation.csproj", "{A3B26008-D429-4248-B9EF-52B62999025E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLib", "ParcelLib\ParcelLib.csproj", "{6E0D4AA5-E5F8-403F-BBF1-8A21171512F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParcelLib", "ParcelLib\ParcelLib.csproj", "{6E0D4AA5-E5F8-403F-BBF1-8A21171512F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLibTest", "ParcelLibTest\ParcelLibTest.csproj", "{93F098D8-CE13-41F8-B2DA-8643DFF61680}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParcelLibTest", "ParcelLibTest\ParcelLibTest.csproj", "{93F098D8-CE13-41F8-B2DA-8643DFF61680}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
